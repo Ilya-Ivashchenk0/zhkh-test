@@ -9,26 +9,41 @@ const CounterStore = types
     addresses: types.array(AddressModel),
     count: types.optional(types.number, 0),
     next: types.maybe(types.string),
-    previous: types.maybe(types.string)
+    previous: types.maybe(types.string),
+    cachedPages: types.map(types.boolean)
   })
+  .views((self) => ({
+    get totalPages() {
+      return Math.ceil(self.count / 20)
+    }
+  }))
   .actions((self) => ({
-    getCounters: flow(function* (limit = 20, offset = 0) {
-      const data = yield api.getCounters(limit, offset)
-      applySnapshot(
-        self.counters,
-        data.results.map((counter: Instance<typeof CounterModel>) =>
-          CounterModel.create(counter)
+    getCounters: flow(function* (page = 1, pageSize = 20) {
+      if (!self.cachedPages.get(page)) {
+        const offset = (page - 1) * pageSize
+        const data = yield api.getCounters(pageSize, offset)
+        applySnapshot(
+          self.counters,
+          data.results.map((counter: Instance<typeof CounterModel>) =>
+            CounterModel.create(counter)
+          )
         )
-      )
 
-      for (let counter of self.counters) {
-        const addressData = yield api.getCountersAddresses([counter.area.id])
-        const address = AddressModel.create(addressData.results[0])
-        self.addresses.push(address)
+        for (let counter of self.counters) {
+          const addressData = yield api.getCountersAddresses([counter.area.id])
+          const address = AddressModel.create(addressData.results[0])
+          self.addresses.push(address)
+        }
+
+        self.cachedPages.set(page, true)
       }
     }),
+    getAllCounters: flow(function* () {
+      const data = yield api.getAllCounters()
+      self.count = data.count
+    }),
     afterCreate() {
-      this.getCounters()
+      this.getAllCounters()
     },
     deleteCounter: flow(function* (id: string) {
       yield api.deleteCounter(id)
@@ -36,7 +51,10 @@ const CounterStore = types
         self.counters,
         self.counters.filter((counter) => counter.id !== id)
       )
-    })
+    }),
+    clearCache() {
+      self.cachedPages.clear()
+    }
   }))
 
 export default CounterStore

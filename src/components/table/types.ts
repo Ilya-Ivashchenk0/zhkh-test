@@ -5,4 +5,7 @@ import AddressModel from '../../models/address-model'
 export interface tableProps {
   counters: Instance<typeof CounterModel>[]
   addresses: Instance<typeof AddressModel>[]
+  totalPages: number
+  handlePageChange: (page: number) => void
+  currentPage: number
 }

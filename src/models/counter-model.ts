@@ -10,7 +10,7 @@ const CounterModel = types.model('Counter', {
   area: AreaModel,
   is_automatic: types.maybeNull(types.boolean),
   communication: types.string,
-  description: types.string,
+  description: types.maybeNull(types.string),
   serial_number: types.string,
   installation_date: types.string,
   brand_name: types.maybeNull(types.string),

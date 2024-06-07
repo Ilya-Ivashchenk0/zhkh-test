@@ -37,9 +37,7 @@ export const TableRow: React.FC<tableRowProps> = ({
       <th>{number}</th>
       <th>{counterType()}</th>
       <th>{date(installation_date)}</th>
-      <th>
-        {is_automatic === null ? 'Нет данных' : is_automatic ? 'Да' : 'Нет'}
-      </th>
+      <th>{is_automatic === null ? '' : is_automatic ? 'Да' : 'Нет'}</th>
       <th>{initial_values}</th>
       <th>{`${houseAddress}, ${strNumberFull}`}</th>
       <th>{description}</th>

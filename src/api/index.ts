@@ -21,6 +21,15 @@ class Api {
     return res.json()
   }
 
+  async getAllCounters() {
+    const data = await fetch(`${this.baseUrl}/test/meters`, {
+      method: 'GET',
+      headers: this.headers
+    })
+
+    return this._getResponseData(data)
+  }
+
   async getCounters(limit: number, offset: number) {
     const data = await fetch(
       `${this.baseUrl}/test/meters/?limit=${limit}&offset=${offset}`,
