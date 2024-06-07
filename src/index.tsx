@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import App from './app'
+import App from './components/app'
 import reportWebVitals from './reportWebVitals'
+import { StoreContext, store } from './hooks/useStore'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <App />
+    <StoreContext.Provider value={store}>
+      <App />
+    </StoreContext.Provider>
   </React.StrictMode>
 )
 

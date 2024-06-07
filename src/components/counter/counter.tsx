@@ -1,4 +1,4 @@
-export const Row: React.FC = () => {
+export const Counter: React.FC = () => {
   return (
     <table>
       <tr></tr>
