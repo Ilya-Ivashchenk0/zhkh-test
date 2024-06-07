@@ -33,9 +33,8 @@ class Api {
     return this._getResponseData(data)
   }
 
-  async getCountersAddresses(ids: string[]) {
-    const idString = ids.join(',')
-    const data = await fetch(`${this.baseUrl}/test/areas/?id__in=${idString}`, {
+  async getCountersAddresses(id: string[]) {
+    const data = await fetch(`${this.baseUrl}/test/areas/?id__in=${id}`, {
       method: 'GET',
       headers: this.headers
     })

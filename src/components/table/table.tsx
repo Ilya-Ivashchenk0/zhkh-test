@@ -1,8 +1,14 @@
+import { Instance } from 'mobx-state-tree'
 import { TableHeader } from '../table-header'
 import { TableRow } from '../table-row'
 import { tableProps } from './types'
+import AddressModel from '../../models/address-model'
 
-export const Table: React.FC<tableProps> = ({ counters }) => {
+export const Table: React.FC<tableProps> = ({ counters, addresses }) => {
+  const getAddress = (id: string) => {
+    return addresses.find((address) => address.id === id)
+  }
+
   return (
     <table>
       <TableHeader />
@@ -22,6 +28,10 @@ export const Table: React.FC<tableProps> = ({ counters }) => {
             brand_name={item.brand_name}
             model_name={item.model_name}
             initial_values={item.initial_values}
+            address={
+              (getAddress(item.area.id) as Instance<typeof AddressModel>) ||
+              undefined
+            }
           />
         ))}
       </tbody>

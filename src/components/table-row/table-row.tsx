@@ -3,26 +3,45 @@ import { tableRowProps } from './types'
 export const TableRow: React.FC<tableRowProps> = ({
   number,
   _type,
-  area,
   is_automatic,
-  communication,
   description,
-  serial_number,
   installation_date,
-  brand_name,
-  model_name,
-  initial_values
+  initial_values,
+  address,
+  ...otherProps
 }) => {
+  const houseAddress = address?.house?.address || 'Загрузка...'
+  const strNumberFull = address?.str_number_full || 'Загрузка...'
+
+  const counterType = () => {
+    switch (_type[0]) {
+      case 'ColdWaterAreaMeter':
+        return 'ХВС'
+      case 'HotWaterAreaMeter':
+        return 'ГВС'
+      default:
+        return 'Неизвестный тип'
+    }
+  }
+
+  const date = (data: string) => {
+    const date = new Date(data)
+    const day = date.getDate().toString().padStart(2, '0')
+    const month = (date.getMonth() + 1).toString().padStart(2, '0')
+    const year = date.getFullYear()
+    return `${day}.${month}.${year}`
+  }
+
   return (
     <tr>
       <th>{number}</th>
-      <th>{_type}</th>
-      <th>{installation_date}</th>
+      <th>{counterType()}</th>
+      <th>{date(installation_date)}</th>
       <th>
         {is_automatic === null ? 'Нет данных' : is_automatic ? 'Да' : 'Нет'}
       </th>
       <th>{initial_values}</th>
-      <th>Адрес</th>
+      <th>{`${houseAddress}, ${strNumberFull}`}</th>
       <th>{description}</th>
     </tr>
   )

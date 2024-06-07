@@ -6,12 +6,12 @@ const HouseModel = types.model('House', {
   fias_addrobjs: types.array(types.string)
 })
 
-const AddressModel = types.model('Area', {
+const AddressModel = types.model('Address', {
   id: types.string,
   number: types.number,
   str_number: types.string,
   str_number_full: types.maybe(types.string),
-  house: types.maybe(HouseModel)
+  house: HouseModel
 })
 
 export default AddressModel

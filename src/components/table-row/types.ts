@@ -1,8 +1,8 @@
 import { Instance } from 'mobx-state-tree'
 import AddressModel from '../../models/address-model'
-import { ICounter } from '../../store/types'
+import CounterModel from '../../models/counter-model'
 
-export interface tableRowProps extends ICounter {
+export interface tableRowProps extends Instance<typeof CounterModel> {
   number: number
-  // address: Instance<typeof AddressModel>
+  address: Instance<typeof AddressModel>
 }
