@@ -26,30 +26,36 @@ export const Table: React.FC<tableProps> = ({
     <div className="table-wrapper">
       <table className="table">
         <TableHeader />
-        <tbody className="table__body">
-          {counters.map((item, index) => (
-            <TableRow
-              key={index}
-              number={calculateCounterNumber(index)}
-              id={item.id}
-              _type={item._type}
-              area={item.area}
-              is_automatic={item.is_automatic}
-              communication={item.communication}
-              description={item.description}
-              serial_number={item.serial_number}
-              installation_date={item.installation_date}
-              brand_name={item.brand_name}
-              model_name={item.model_name}
-              initial_values={item.initial_values}
-              address={
-                (getAddress(item.area.id) as Instance<typeof AddressModel>) ||
-                undefined
-              }
-              handleDeleteCounter={handleDeleteCounter}
-            />
-          ))}
-        </tbody>
+      </table>
+      <div className="table__body-wrapper">
+        <table>
+          <tbody className="table__body">
+            {counters.map((item, index) => (
+              <TableRow
+                key={index}
+                number={calculateCounterNumber(index)}
+                id={item.id}
+                _type={item._type}
+                area={item.area}
+                is_automatic={item.is_automatic}
+                communication={item.communication}
+                description={item.description}
+                serial_number={item.serial_number}
+                installation_date={item.installation_date}
+                brand_name={item.brand_name}
+                model_name={item.model_name}
+                initial_values={item.initial_values}
+                address={
+                  (getAddress(item.area.id) as Instance<typeof AddressModel>) ||
+                  undefined
+                }
+                handleDeleteCounter={handleDeleteCounter}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <table>
         <tfoot className="table__footer">
           <tr>
             <td colSpan={8}>

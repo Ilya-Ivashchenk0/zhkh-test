@@ -1,7 +1,5 @@
 .table-row {
   margin: 0;
-  padding: 0;
-  border-bottom: 1px solid var(--slate-color);
   background-color: var(--white-color);
 }
 
@@ -26,6 +24,10 @@
   cursor: pointer;
 }
 
+.table-row__button:hover {
+  background-color: var(--trash-hover-color);
+}
+
 .table-row__content {
   margin: 0;
   padding: 0;
@@ -42,4 +44,8 @@
 
 .table-row__trash-wrapper {
   min-width: 67.92px;
+}
+
+.table-row__desc {
+  color: var(--description-color)
 }
