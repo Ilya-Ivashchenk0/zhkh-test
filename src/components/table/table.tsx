@@ -23,12 +23,10 @@ export const Table: React.FC<tableProps> = ({
   };
 
   return (
-    <div className="table-wrapper">
-      <table className="table">
-        <TableHeader />
-      </table>
+    <div className="table">
       <div className="table__body-wrapper">
-        <table className="table">
+        <table>
+          <TableHeader />
           <tbody className="table__body">
             {counters.map((item, index) => (
               <TableRow
@@ -55,7 +53,7 @@ export const Table: React.FC<tableProps> = ({
           </tbody>
         </table>
       </div>
-      <table className="table">
+      <table>
         <tfoot className="table__footer">
           <tr>
             <td colSpan={8}>
