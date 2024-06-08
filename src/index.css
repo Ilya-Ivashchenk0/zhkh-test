@@ -41,9 +41,15 @@ table {
 
 .first-cell {
   margin: 0;
-  padding: 10px 20px;
+  padding: 8px 20px;
 }
 
 .other-cell {
   padding-left: 12px;
+}
+
+.last-cell {
+  padding-right: 12px;
+  min-width: 67.92px;
+  text-align: right;
 }

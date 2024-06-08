@@ -58,6 +58,21 @@ const CounterStore = types
         self.counters,
         self.counters.filter((counter) => counter.id !== id)
       );
+
+      const remainingCount = self.counters.length;
+
+      if (remainingCount < 20) {
+        const missingCount = 20 - remainingCount;
+        const data = yield api.getCounters(missingCount, 0);
+        applySnapshot(
+          self.counters,
+          self.counters.concat(
+            data.results.map((counter: Instance<typeof CounterModel>) =>
+              CounterModel.create(counter)
+            )
+          )
+        );
+      }
     }),
     clearCache() {
       self.cachedPages.clear();

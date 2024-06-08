@@ -30,7 +30,7 @@ export const TableRow: React.FC<tableRowProps> = ({
           <td className="table-row__cell other-cell">
             <div className="table-row__content">
               <img className="table-row__content-img" src={cold} alt="" />
-              <span>ХВС</span>
+              <p>ХВС</p>
             </div>
           </td>
         );
@@ -39,7 +39,7 @@ export const TableRow: React.FC<tableRowProps> = ({
           <td className="table-row__cell other-cell">
             <div className="table-row__content">
               <img className="table-row__content-img" src={hot} alt="" />
-              <span>ГВС</span>
+              <p>ГВС</p>
             </div>
           </td>
         );
@@ -77,7 +77,7 @@ export const TableRow: React.FC<tableRowProps> = ({
       <td className="table-row__cell table-row__desc other-cell">
         {description}
       </td>
-      <td className="table-row__cell other-cell table-row__trash-wrapper">
+      <td className="table-row__cell other-cell last-cell">
         {isCounterHover && (
           <button
             onClick={handleDelete}

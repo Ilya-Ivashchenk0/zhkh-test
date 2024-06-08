@@ -31,7 +31,7 @@ const App: React.FC = observer(() => {
   };
 
   if (!counters.counters.length || !counters.addresses.length) {
-    return <div>Loading...</div>;
+    return <div>Загрузка...</div>;
   }
 
   return (

@@ -32,7 +32,6 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 8px;
 }
@@ -40,10 +39,6 @@
 .table-row__content-img {
   width: 16px;
   height: 16px;
-}
-
-.table-row__trash-wrapper {
-  min-width: 67.92px;
 }
 
 .table-row__desc {
