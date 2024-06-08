@@ -1,3 +1,4 @@
+import './table.css'
 import { Instance } from 'mobx-state-tree'
 import { TableHeader } from '../table-header'
 import { TableRow } from '../table-row'
@@ -10,7 +11,8 @@ export const Table: React.FC<tableProps> = ({
   addresses,
   totalPages,
   handlePageChange,
-  currentPage
+  currentPage,
+  handleDeleteCounter
 }) => {
   const getAddress = (id: string) => {
     return addresses.find((address) => address.id === id)
@@ -21,10 +23,10 @@ export const Table: React.FC<tableProps> = ({
   }
 
   return (
-    <>
-      <table>
+    <div className="table-wrapper">
+      <table className="table">
         <TableHeader />
-        <tbody>
+        <tbody className="table__body">
           {counters.map((item, index) => (
             <TableRow
               key={index}
@@ -44,15 +46,22 @@ export const Table: React.FC<tableProps> = ({
                 (getAddress(item.area.id) as Instance<typeof AddressModel>) ||
                 undefined
               }
+              handleDeleteCounter={handleDeleteCounter}
             />
           ))}
         </tbody>
+        <tfoot className="table__footer">
+          <tr>
+            <td colSpan={8}>
+              <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
+              />
+            </td>
+          </tr>
+        </tfoot>
       </table>
-      <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
-    </>
+    </div>
   )
 }

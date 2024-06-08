@@ -1,10 +1,37 @@
 :root {
   --black-color: #000;
   --white-color: #fff;
+  --app-color: rgba(248, 249, 250, 1);
+  --table-heading-color: rgba(240, 243, 247, 1);
+  --slate-color: rgba(224, 229, 235, 1);
+  --hover-color: rgba(247, 248, 249, 1);
+  --gray-color: rgba(105, 113, 128, 1);
+  --dark-slate-color: rgba(94, 102, 116, 1);
+  --dark-color: rgba(31, 41, 57, 1);
+  --type-color: rgba(29, 36, 50, 1);
+  --trash-color: rgba(254, 227, 227, 1);
+  --trash-hover-color: rgba(254, 215, 215, 1);
+  --trash-void-color: rgba(242, 245, 248, 1);
+  --pagination-border-color: rgba(206, 213, 222, 1);
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: var(--app-color);
+  padding: 16px;
+}
+
+th {
+  text-align: left;
+}
+
+.first-cell {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.other-cell {
+  padding-left: 12px;
 }

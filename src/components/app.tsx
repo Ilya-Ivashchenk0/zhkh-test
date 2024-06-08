@@ -19,6 +19,17 @@ const App: React.FC = observer(() => {
     counters.clearCache()
   }
 
+  const handleDeleteCounter = (id: string) => {
+    counters
+      .deleteCounter(id)
+      .then(() => {
+        setCurrentPage(currentPage)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
   if (!counters.counters.length || !counters.addresses.length) {
     return <div>Loading...</div>
   }
@@ -32,6 +43,7 @@ const App: React.FC = observer(() => {
         totalPages={counters.totalPages}
         handlePageChange={handlePageChange}
         currentPage={currentPage}
+        handleDeleteCounter={handleDeleteCounter}
       />
     </main>
   )

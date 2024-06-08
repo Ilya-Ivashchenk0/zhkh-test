@@ -1,0 +1,13 @@
+.table-header {
+  margin: 0;
+  padding: 0;
+  background-color: var(--table-heading-color);
+}
+
+.table-header__cell {
+  margin: 0;
+  color: var(--gray-color);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}

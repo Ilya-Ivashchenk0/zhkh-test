@@ -10,11 +10,17 @@ const CounterStore = types
     count: types.optional(types.number, 0),
     next: types.maybe(types.string),
     previous: types.maybe(types.string),
-    cachedPages: types.map(types.boolean)
+    cachedPages: types.map(types.boolean),
+    currentPage: types.optional(types.number, 1)
   })
   .views((self) => ({
     get totalPages() {
       return Math.ceil(self.count / 20)
+    },
+    get displayedCounters() {
+      const start = (self.currentPage - 1) * 20
+      const end = start + 20
+      return self.counters.slice(start, end)
     }
   }))
   .actions((self) => ({
@@ -36,6 +42,7 @@ const CounterStore = types
         }
 
         self.cachedPages.set(page, true)
+        self.currentPage = page
       }
     }),
     getAllCounters: flow(function* () {

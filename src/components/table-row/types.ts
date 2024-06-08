@@ -5,4 +5,5 @@ import CounterModel from '../../models/counter-model'
 export interface tableRowProps extends Instance<typeof CounterModel> {
   number: number
   address: Instance<typeof AddressModel>
+  handleDeleteCounter: (id: string) => void
 }

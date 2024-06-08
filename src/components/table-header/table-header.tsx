@@ -1,14 +1,17 @@
+import './table-header.css'
+
 export const TableHeader: React.FC = () => {
   return (
-    <thead>
-      <tr>
-        <th>№</th>
-        <th>Тип</th>
-        <th>Дата установки</th>
-        <th>Автоматический</th>
-        <th>Текущие показания</th>
-        <th>Адрес</th>
-        <th>Примечание</th>
+    <thead className="table-header">
+      <tr className="table-header__heading">
+        <th className="table-header__cell first-cell">№</th>
+        <th className="table-header__cell other-cell">Тип</th>
+        <th className="table-header__cell other-cell">Дата установки</th>
+        <th className="table-header__cell other-cell">Автоматический</th>
+        <th className="table-header__cell other-cell">Текущие показания</th>
+        <th className="table-header__cell other-cell">Адрес</th>
+        <th className="table-header__cell other-cell">Примечание</th>
+        <th className="table-header__cell other-cell"></th>
       </tr>
     </thead>
   )

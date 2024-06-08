@@ -1,0 +1,39 @@
+.table-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-spacing: 0 1px;
+  border-collapse: separate;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.table__body {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.table__body td {
+  min-height: 100%;
+  border-bottom: 1px solid var(--slate-color);
+}
+
+.table__body tr:last-child {
+  border-bottom: none;
+}
+
+.table__footer {
+  width: 100%;
+}
+
+.table__footer td {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}

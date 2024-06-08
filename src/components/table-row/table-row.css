@@ -1,0 +1,45 @@
+.table-row {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--slate-color);
+  background-color: var(--white-color);
+}
+
+.table-row:hover {
+  background-color: var(--slate-color);
+}
+
+.table-row__cell {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+
+.table-row__button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: var(--trash-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.table-row__content {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-row__content-img {
+  width: 16px;
+  height: 16px;
+}
+
+.table-row__trash-wrapper {
+  min-width: 67.92px;
+}

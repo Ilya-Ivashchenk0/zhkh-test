@@ -8,4 +8,5 @@ export interface tableProps {
   totalPages: number
   handlePageChange: (page: number) => void
   currentPage: number
+  handleDeleteCounter: (id: string) => void
 }
