@@ -1,10 +1,10 @@
-import './table-row.css'
-import { tableRowProps } from './types'
-import trash from '../../images/icons/trash.svg'
-import trashHover from '../../images/icons/trash-hover.svg'
-import { useState } from 'react'
-import cold from '../../images/icons/hvs.svg'
-import hot from '../../images/icons/gvs.svg'
+import './table-row.css';
+import { tableRowProps } from './types';
+import trash from '../../images/icons/trash.svg';
+import trashHover from '../../images/icons/trash-hover.svg';
+import { useState } from 'react';
+import cold from '../../images/icons/hvs.svg';
+import hot from '../../images/icons/gvs.svg';
 
 export const TableRow: React.FC<tableRowProps> = ({
   id,
@@ -18,10 +18,10 @@ export const TableRow: React.FC<tableRowProps> = ({
   handleDeleteCounter,
   ...otherProps
 }) => {
-  const [isCounterHover, setCounterHover] = useState(false)
-  const [isButtonHover, setButtonHover] = useState(false)
-  const houseAddress = address?.house?.address || ''
-  const strNumberFull = address?.str_number_full || 'Загрузка...'
+  const [isCounterHover, setCounterHover] = useState(false);
+  const [isButtonHover, setButtonHover] = useState(false);
+  const houseAddress = address?.house?.address || '';
+  const strNumberFull = address?.str_number_full || 'Загрузка...';
 
   const counterType = () => {
     switch (_type[0]) {
@@ -33,7 +33,7 @@ export const TableRow: React.FC<tableRowProps> = ({
               <span>ХВС</span>
             </div>
           </td>
-        )
+        );
       case 'HotWaterAreaMeter':
         return (
           <td className="table-row__cell other-cell">
@@ -42,23 +42,23 @@ export const TableRow: React.FC<tableRowProps> = ({
               <span>ГВС</span>
             </div>
           </td>
-        )
+        );
       default:
-        return 'Неизвестный тип'
+        return 'Неизвестный тип';
     }
-  }
+  };
 
   const date = (data: string) => {
-    const date = new Date(data)
-    const day = date.getDate().toString().padStart(2, '0')
-    const month = (date.getMonth() + 1).toString().padStart(2, '0')
-    const year = date.getFullYear()
-    return `${day}.${month}.${year}`
-  }
+    const date = new Date(data);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}.${month}.${year}`;
+  };
 
   const handleDelete = () => {
-    handleDeleteCounter(id)
-  }
+    handleDeleteCounter(id);
+  };
 
   return (
     <tr
@@ -94,5 +94,5 @@ export const TableRow: React.FC<tableRowProps> = ({
         )}
       </td>
     </tr>
-  )
-}
+  );
+};

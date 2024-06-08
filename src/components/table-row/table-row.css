@@ -47,5 +47,5 @@
 }
 
 .table-row__desc {
-  color: var(--description-color)
+  color: var(--description-color);
 }

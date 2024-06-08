@@ -1,10 +1,10 @@
-import './table.css'
-import { Instance } from 'mobx-state-tree'
-import { TableHeader } from '../table-header'
-import { TableRow } from '../table-row'
-import { tableProps } from './types'
-import AddressModel from '../../models/address-model'
-import { Pagination } from '../pagination'
+import './table.css';
+import { Instance } from 'mobx-state-tree';
+import { TableHeader } from '../table-header';
+import { TableRow } from '../table-row';
+import { tableProps } from './types';
+import AddressModel from '../../models/address-model';
+import { Pagination } from '../pagination';
 
 export const Table: React.FC<tableProps> = ({
   counters,
@@ -12,15 +12,15 @@ export const Table: React.FC<tableProps> = ({
   totalPages,
   handlePageChange,
   currentPage,
-  handleDeleteCounter
+  handleDeleteCounter,
 }) => {
   const getAddress = (id: string) => {
-    return addresses.find((address) => address.id === id)
-  }
+    return addresses.find((address) => address.id === id);
+  };
 
   const calculateCounterNumber = (index: number) => {
-    return (currentPage - 1) * 20 + index + 1
-  }
+    return (currentPage - 1) * 20 + index + 1;
+  };
 
   return (
     <div className="table-wrapper">
@@ -69,5 +69,5 @@ export const Table: React.FC<tableProps> = ({
         </tfoot>
       </table>
     </div>
-  )
-}
+  );
+};
