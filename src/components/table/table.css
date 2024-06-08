@@ -5,6 +5,7 @@
 
 .table__body-wrapper {
   max-height: 864px;
+  border-radius: 8px 8px 0 0;
   overflow: hidden;
   overflow-y: auto;
 }

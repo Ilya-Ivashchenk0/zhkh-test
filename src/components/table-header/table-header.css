@@ -4,6 +4,11 @@
   background-color: var(--table-heading-color);
 }
 
+.table-header__heading {
+  margin: 0;
+  padding: 0;
+}
+
 .table-header__cell {
   margin: 0;
   color: var(--gray-color);
@@ -11,3 +16,5 @@
   font-size: 13px;
   line-height: 16px;
 }
+
+
