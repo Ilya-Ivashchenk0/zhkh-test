@@ -46,6 +46,7 @@ table {
 
 .other-cell {
   padding-left: 12px;
+  text-wrap: nowrap;
 }
 
 .last-cell {

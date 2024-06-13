@@ -8,10 +8,12 @@
   border-radius: 8px 8px 0 0;
   overflow: hidden;
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 .table__body-wrapper::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 .table__body-wrapper::-webkit-scrollbar-thumb {
