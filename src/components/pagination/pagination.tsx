@@ -1,16 +1,16 @@
-import './pagination.css';
-import { observer } from 'mobx-react-lite';
-import { paginationProps } from './types';
+import './pagination.css'
+import { observer } from 'mobx-react-lite'
+import { paginationProps } from './types'
 
 export const Pagination: React.FC<paginationProps> = observer(
   ({ totalPages, currentPage, onPageChange }) => {
     const handlePageClick = (page: number) => {
-      onPageChange(page);
-    };
+      onPageChange(page)
+    }
 
     const renderPageNumbers = () => {
-      const pageNumbers = [];
-      const maxPageNumbers = 3;
+      const pageNumbers = []
+      const maxPageNumbers = 3
 
       if (totalPages <= maxPageNumbers + 2) {
         for (let i = 1; i <= totalPages; i++) {
@@ -26,7 +26,7 @@ export const Pagination: React.FC<paginationProps> = observer(
             >
               {i}
             </button>
-          );
+          )
         }
       } else {
         pageNumbers.push(
@@ -41,7 +41,7 @@ export const Pagination: React.FC<paginationProps> = observer(
           >
             1
           </button>
-        );
+        )
 
         if (currentPage > maxPageNumbers) {
           pageNumbers.push(
@@ -51,11 +51,11 @@ export const Pagination: React.FC<paginationProps> = observer(
             >
               ...
             </button>
-          );
+          )
         }
 
-        const startPage = Math.max(2, currentPage - 1);
-        const endPage = Math.min(totalPages - 1, currentPage + 1);
+        const startPage = Math.max(2, currentPage - 1)
+        const endPage = Math.min(totalPages - 1, currentPage + 1)
 
         for (let i = startPage; i <= endPage; i++) {
           pageNumbers.push(
@@ -70,7 +70,7 @@ export const Pagination: React.FC<paginationProps> = observer(
             >
               {i}
             </button>
-          );
+          )
         }
 
         if (currentPage < totalPages - maxPageNumbers) {
@@ -78,7 +78,7 @@ export const Pagination: React.FC<paginationProps> = observer(
             <button className="pagination__button disabled" key="end-ellipsis">
               ...
             </button>
-          );
+          )
         }
 
         pageNumbers.push(
@@ -93,12 +93,12 @@ export const Pagination: React.FC<paginationProps> = observer(
           >
             {totalPages}
           </button>
-        );
+        )
       }
 
-      return pageNumbers;
-    };
+      return pageNumbers
+    }
 
-    return <div className="pagination">{renderPageNumbers()}</div>;
+    return <div className="pagination">{renderPageNumbers()}</div>
   }
-);
+)

@@ -1,10 +1,10 @@
-import './table.css';
-import { Instance } from 'mobx-state-tree';
-import { TableHeader } from '../table-header';
-import { TableRow } from '../table-row';
-import { tableProps } from './types';
-import AddressModel from '../../models/address-model';
-import { Pagination } from '../pagination';
+import './table.css'
+import { Instance } from 'mobx-state-tree'
+import { TableHeader } from '../table-header'
+import { TableRow } from '../table-row'
+import { tableProps } from './types'
+import AddressModel from '../../models/address-model'
+import { Pagination } from '../pagination'
 
 export const Table: React.FC<tableProps> = ({
   counters,
@@ -12,15 +12,19 @@ export const Table: React.FC<tableProps> = ({
   totalPages,
   handlePageChange,
   currentPage,
-  handleDeleteCounter,
+  handleDeleteCounter
 }) => {
   const getAddress = (id: string) => {
-    return addresses.find((address) => address.id === id);
-  };
+    return addresses.find((address) => address.id === id)
+  }
 
   const calculateCounterNumber = (index: number) => {
-    return (currentPage - 1) * 20 + index + 1;
-  };
+    return (currentPage - 1) * 20 + index + 1
+  }
+
+  const onDeleteCounter = (id: string) => {
+    handleDeleteCounter(id)
+  }
 
   return (
     <div className="table">
@@ -30,7 +34,7 @@ export const Table: React.FC<tableProps> = ({
           <tbody className="table__body">
             {counters.map((item, index) => (
               <TableRow
-                key={index}
+                key={item.id}
                 number={calculateCounterNumber(index)}
                 id={item.id}
                 _type={item._type}
@@ -44,10 +48,9 @@ export const Table: React.FC<tableProps> = ({
                 model_name={item.model_name}
                 initial_values={item.initial_values}
                 address={
-                  (getAddress(item.area.id) as Instance<typeof AddressModel>) ||
-                  undefined
+                  getAddress(item.area.id) as Instance<typeof AddressModel>
                 }
-                handleDeleteCounter={handleDeleteCounter}
+                handleDeleteCounter={onDeleteCounter}
               />
             ))}
           </tbody>
@@ -67,5 +70,5 @@ export const Table: React.FC<tableProps> = ({
         </tfoot>
       </table>
     </div>
-  );
-};
+  )
+}

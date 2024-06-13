@@ -1,37 +1,37 @@
-import './app.css';
-import { Table } from './table';
-import { useStore } from '../hooks/useStore';
-import { observer } from 'mobx-react-lite';
-import { useEffect, useState } from 'react';
+import './app.css'
+import { Table } from './table'
+import { useStore } from '../hooks/useStore'
+import { observer } from 'mobx-react-lite'
+import { useEffect, useState } from 'react'
 
 const App: React.FC = observer(() => {
-  const { counters } = useStore();
+  const { counters } = useStore()
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    counters.getCounters(currentPage);
+    counters.getCounters(currentPage)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage]);
+  }, [currentPage])
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    counters.clearCache();
-  };
+    setCurrentPage(page)
+    counters.clearCache()
+  }
 
   const handleDeleteCounter = (id: string) => {
     counters
       .deleteCounter(id)
       .then(() => {
-        setCurrentPage(currentPage);
+        setCurrentPage(currentPage)
       })
       .catch((err) => {
-        console.error(err);
-      });
-  };
+        console.error(err)
+      })
+  }
 
   if (!counters.counters.length || !counters.addresses.length) {
-    return <div>Загрузка...</div>;
+    return <div>Загрузка...</div>
   }
 
   return (
@@ -46,7 +46,7 @@ const App: React.FC = observer(() => {
         handleDeleteCounter={handleDeleteCounter}
       />
     </main>
-  );
-});
+  )
+})
 
-export default App;
+export default App

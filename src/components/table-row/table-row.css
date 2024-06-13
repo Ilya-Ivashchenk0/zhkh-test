@@ -10,8 +10,8 @@
 .table-row__cell {
   margin: 0;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(18px + (20 - 18) * ((100vw - 320px) / (1440 - 320)));
   vertical-align: middle;
 }
 

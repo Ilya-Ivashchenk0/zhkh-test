@@ -21,6 +21,11 @@
   background-color: transparent;
   border: 1px solid var(--pagination-border-color);
   border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination__button:hover {
+  background-color: var(--trash-void-color);
 }
 
 .active {

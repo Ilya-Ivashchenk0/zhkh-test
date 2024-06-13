@@ -1,8 +1,8 @@
-import { types } from 'mobx-state-tree';
+import { types } from 'mobx-state-tree'
 
 const AreaModel = types.model('Area', {
-  id: types.string,
-});
+  id: types.string
+})
 
 const CounterModel = types.model('Counter', {
   id: types.identifier,
@@ -15,7 +15,7 @@ const CounterModel = types.model('Counter', {
   installation_date: types.string,
   brand_name: types.maybeNull(types.string),
   model_name: types.maybeNull(types.string),
-  initial_values: types.array(types.number),
-});
+  initial_values: types.array(types.number)
+})
 
-export default CounterModel;
+export default CounterModel

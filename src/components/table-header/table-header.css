@@ -11,10 +11,9 @@
 
 .table-header__cell {
   margin: 0;
+  padding-left: 12px;
   color: var(--gray-color);
   font-weight: 500;
-  font-size: 13px;
-  line-height: 16px;
+  font-size: calc(12px + (13 - 12) * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(16px + (16 - 16) * ((100vw - 320px) / (1440 - 320)));
 }
-
-
