@@ -1,4 +1,4 @@
-import './table-header.css'
+import './table-header.css';
 
 export const TableHeader: React.FC = () => {
   return (
@@ -14,5 +14,5 @@ export const TableHeader: React.FC = () => {
         <th className="table-header__cell last-cell"></th>
       </tr>
     </thead>
-  )
-}
+  );
+};

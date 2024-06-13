@@ -3,5 +3,5 @@ export const Counter: React.FC = () => {
     <table>
       <tr></tr>
     </table>
-  )
-}
+  );
+};
